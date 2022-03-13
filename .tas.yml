@@ -1,0 +1,22 @@
+---
+framework: jest
+
+preRun:
+     command:
+        - yarn
+        - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 
+        - source $HOME/.cargo/env
+        - yarn build:dev
+        - export NODE_OPTIONS='--experimental-vm-modules'
+
+preMerge:
+  pattern:
+    - "node-swc/__tests__/*"
+
+postMerge:
+  pattern: 
+    - "node-swc/__tests__/*"
+
+configFile: "jest.config.js"
+
+version: 1.0

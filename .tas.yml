@@ -3,8 +3,8 @@ framework: jest
 
 preRun:
      command:
-        - yarn --no-verify
         - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 
+        - yarn --no-verify
         - source $HOME/.cargo/env
         - yarn build:dev
         - export NODE_OPTIONS='--experimental-vm-modules'
